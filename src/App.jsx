@@ -1,9 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+
 function App() {
     return (
         <>
-            <div className="h-screen flex justify-center items-center">
-                <h1 className="font-bold text-4xl">Hello world</h1>
-            </div>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/books" element={<Home />} />
+            </Routes>
         </>
     );
 }
