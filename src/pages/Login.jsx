@@ -1,8 +1,32 @@
 import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
 import SPLIT_IMAGE from "../assets/Images/split_screen_img.jpg";
-// import { supabase } from "../config/supabaseClient";
+import { supabase } from "../config/supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    async function signInWithFacebook() {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: "facebook",
+        });
+        if (error) {
+            console.log("Error signing in with Facebook", error.message);
+        }
+        if (data) {
+            console.log(data);
+            localStorage.setItem("userData", JSON.stringify(data));
+            navigate("/home");
+        }
+    }
+
+    // TODO: Implement Google Sign In
+    // async function signInWithGoogle() {
+    //     await supabase.auth.signInWithOAuth({
+    //         provider: "google",
+    //     });
+    // }
+
     return (
         <>
             <main className="h-screen flex items-center justify-center">
@@ -15,7 +39,10 @@ export default function Login() {
                             </button>
                         </div>
                         <div className="border-2 mx-4 flex items-center justify-center rounded-lg">
-                            <button className="py-4 px-16 flex gap-4 items-center">
+                            <button
+                                onClick={signInWithFacebook}
+                                className="py-4 px-16 flex gap-4 items-center"
+                            >
                                 <FaFacebookF className="text-blue-500" />
                                 <span>Sign in with Facebook</span>
                             </button>
