@@ -1,40 +1,61 @@
-import { FaGoogle, FaFacebookF, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaFacebookF, FaGithub, FaDiscord } from "react-icons/fa";
 import SPLIT_IMAGE from "../assets/Images/split_screen_img.jpg";
 import { supabase } from "../config/supabaseClient";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const navigate = useNavigate();
-
+    // Methods to sign in with OAuth
     async function signInWithFacebook() {
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: "facebook",
+            options: {
+                redirectTo: "http://localhost:5173/home",
+            },
         });
         if (error) {
             console.log("Error signing in with Facebook", error.message);
-        }
-        if (data) {
-            console.log(data);
+        } else {
             localStorage.setItem("userData", JSON.stringify(data));
-            navigate("/home");
         }
     }
-
     async function signInWithGitHub() {
         const { data, error } = await supabase.auth.signInWithOAuth({
             provider: "github",
+            options: {
+                redirectTo: "http://localhost:5173/home",
+            },
         });
         if (error) {
             console.log("Error signing in with GitHub", error.message);
-        }
-        if (data) {
-            console.log(data);
+        } else {
             localStorage.setItem("userData", JSON.stringify(data));
-            navigate("/home");
         }
     }
-
-    // TODO: Implement signInWithGoogle, signInWithTwitter and signInWithGitHub functions
+    async function signInWithGoogle() {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+                redirectTo: "http://localhost:5173/home",
+            },
+        });
+        if (error) {
+            console.log("Error signing in with Google", error.message);
+        } else {
+            localStorage.setItem("userData", JSON.stringify(data));
+        }
+    }
+    async function signInWithDiscord() {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: "discord",
+            options: {
+                redirectTo: "http://localhost:5173/home",
+            },
+        });
+        if (error) {
+            console.log("Error signing in with Discord", error.message);
+        } else {
+            localStorage.setItem("userData", JSON.stringify(data));
+        }
+    }
 
     return (
         <>
@@ -61,17 +82,23 @@ export default function Login() {
                             </span>
                         </button>
 
-                        <button className="py-4 px-16 flex gap-4 items-center">
+                        <button
+                            onClick={signInWithGoogle}
+                            className="py-4 px-16 flex gap-4 items-center"
+                        >
                             <FaGoogle className="text-red-500" />
                             <span className="border-b-2 border-b-black/25 hover:border-b-black">
                                 Sign in with Google
                             </span>
                         </button>
 
-                        <button className="py-4 px-16 flex gap-4 items-center">
-                            <FaTwitter className="text-sky-500" />
+                        <button
+                            onClick={signInWithDiscord}
+                            className="py-4 px-16 flex gap-4 items-center"
+                        >
+                            <FaDiscord className="text-purple-500" />
                             <span className="border-b-2 border-b-black/25 hover:border-b-black">
-                                Sign in with Twitter
+                                Sign in with Discord
                             </span>
                         </button>
                     </div>
