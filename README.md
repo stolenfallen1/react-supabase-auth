@@ -5,34 +5,44 @@ A simple user authentication setup for your React app using your favorite OAuth 
 ### Description:
 Get started quickly with basic user authentication in your React applications. This template integrates seamlessly with well-known OAuth service providers, allowing users to sign in securely using their preferred accounts. Additionally, you can easily implement custom hook middleware to protect routes from unauthorized access, ensuring a smooth and secure user experience. Simplify your authentication workflow and focus on building your application with confidence.
 
-Authenticating with Facebook
 
--   First set-up your supabase project
--   After creating your project make sure to save your supabase URL and supabase anon key, cause we will be using that later.
--   Then navigate in the authentications page in the sidebar then choose facebook
--   Then type in all the credentials needed. But where can I get all this credentials? Read further down below for instructions.
+### 1. Clone the project to get started
 
-Example:
-![](/src/assets/screenshots/SC1.png)
+Cloning the project using SSH
 
--   First go to meta's / facebook developer website: https://developers.facebook.com
--   If you don't have an account please do register
--   After registering go to "My Apps" and Create one
--   After creating your app go to "App Settings" which is located in the sidebar then click "Basic"
--   Right there you can see your Client ID / App ID and Client Secret / App Secret
+`git clone git@github.com:stolenfallen1/react-supabase-auth.git`
 
-Example:
-![](/src/assets/screenshots/SC2.png)
+Cloning the project using HTTPS 
 
--   Paste that in to the facebook authentication provider
--   Then copy the URL callback for OAuth that supabase provided
--   Go back to your meta project and on the sidebar you can see "use cases"
--   Find "Authentication and account creation" then click the customize button
--   Press the "Go to Settings" button and paste the callback url that supabase provides to the "Valid OAuth Redirect URIs" then hit save.
--   And lastly under the permissions the email and public_profile status should be set to "Ready for testing", if not please do add.
+`git clone https://github.com/stolenfallen1/react-supabase-auth.git`
 
-For more detailed explanation go visit the docs that supabase provides:
-https://supabase.com/docs/guides/auth/social-login/auth-facebook
+Install project dependencies
 
--   After getting set-up create an ENV file then paste your supabase URL and supabase anon key
--   And that's it test and configure the code base on your liking! :>
+`npm install`
+
+### 2. Creating your supabase project and getting the necessary credentials to get started
+
+ - Go to https://supabase.com/ register or use your GitHub account to sign in.
+ - Create a project 
+ - Navigate to your project settings and copy the supabase project URL and supabase project api key ( anon public key ) on a notepad or somewhere else.
+
+
+### 3. Environment Variables
+
+Create .env file to store sensitive keys, you can use this command to do so.
+
+`touch .env`
+
+Now let's add this two environment variables to our .env file, paste the two keys we get earlier from the supabase dashboard which was the supabase project url and supabase anon key as the value in this two env variables.
+
+`VITE_SUPABASE_URL` 
+
+`VITE_SUPABASE_ANON_KEY`
+
+
+### Facebook Configuration
+### GitHub Configuration 
+### Google Configuration 
+### Discord Configuration
+
+
