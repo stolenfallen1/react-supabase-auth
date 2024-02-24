@@ -1,4 +1,9 @@
-# React + Supabase + Your Favorite Auth Service Providers
+# React app user authentication with OAuth integration using supabase
+
+A simple user authentication setup for your React app using your favorite OAuth service providers.
+
+### Description:
+Get started quickly with basic user authentication in your React applications. This template integrates seamlessly with well-known OAuth service providers, allowing users to sign in securely using their preferred accounts. Additionally, you can easily implement custom hook middleware to protect routes from unauthorized access, ensuring a smooth and secure user experience. Simplify your authentication workflow and focus on building your application with confidence.
 
 Authenticating with Facebook
 
