@@ -1,7 +1,10 @@
 import { supabase } from "../config/supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../hooks/useAuthentication";
 
 export default function Home() {
+    useAuthentication(); 
+
     const navigate = useNavigate();
 
     async function signOut() {
