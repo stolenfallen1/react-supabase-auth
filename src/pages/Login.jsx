@@ -4,8 +4,8 @@ import { supabase } from "../config/supabaseClient";
 
 export default function Login() {
     // Methods to sign in with OAuth
-    async function signInWithFacebook() {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+    const signInWithFacebook = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
             provider: "facebook",
             options: {
                 redirectTo: "http://localhost:5173/home",
@@ -13,12 +13,10 @@ export default function Login() {
         });
         if (error) {
             console.log("Error signing in with Facebook", error.message);
-        } else {
-            localStorage.setItem("userData", JSON.stringify(data));
         }
     }
-    async function signInWithGitHub() {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+    const signInWithGitHub = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
             provider: "github",
             options: {
                 redirectTo: "http://localhost:5173/home",
@@ -26,12 +24,10 @@ export default function Login() {
         });
         if (error) {
             console.log("Error signing in with GitHub", error.message);
-        } else {
-            localStorage.setItem("userData", JSON.stringify(data));
         }
     }
-    async function signInWithGoogle() {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+    const signInWithGoogle = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
                 redirectTo: "http://localhost:5173/home",
@@ -39,12 +35,10 @@ export default function Login() {
         });
         if (error) {
             console.log("Error signing in with Google", error.message);
-        } else {
-            localStorage.setItem("userData", JSON.stringify(data));
-        }
+        } 
     }
-    async function signInWithDiscord() {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+    const signInWithDiscord = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
             provider: "discord",
             options: {
                 redirectTo: "http://localhost:5173/home",
@@ -52,9 +46,7 @@ export default function Login() {
         });
         if (error) {
             console.log("Error signing in with Discord", error.message);
-        } else {
-            localStorage.setItem("userData", JSON.stringify(data));
-        }
+        } 
     }
 
     return (
