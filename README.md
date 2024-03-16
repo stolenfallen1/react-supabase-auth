@@ -42,9 +42,9 @@ Now let's add this two environment variables to our .env file, paste the two key
 
 ### Facebook Configuration
 
-Seeting up Facebook logins for your Application consists of 2 parts: 
+Setting up Facebook logins for your Application consists of 2 parts: 
 
-- Firstly create and configure a Facebook Application on Facebook / Meta Developer Site [https://developers.facebook.com/]
+- Firstly create and configure a Facebook Application
 - Add your facebook keys to your Supabase project ( Facebook Client ID and Facebook Secret )
 
 Access your facebook developer account
@@ -90,9 +90,9 @@ If you find it hard to follow the documentation please read here: The official d
 
 ### GitHub Configuration 
 
-Seeting up GitHub logins for your Application consists of 2 parts: 
+Setting up GitHub logins for your Application consists of 2 parts: 
 
-- Create and configure a GitHub OAuth App on [https://github.com/]
+- Create and configure a GitHub OAuth App
 - Add your GitHub keys to your Supabase project ( Client ID and Client Keys )
 
 Access your github account
@@ -136,6 +136,98 @@ Enter your GitHub credentials into your supabase project
 If you find it hard to follow the documentation please read here: The official documentation from supabase [https://supabase.com/docs/guides/auth/social-login/auth-github]
 
 ### Google Configuration 
+
+Setting up Google logins for your Application consists of 3 parts: 
+
+- Create and configure a Google Cloud Project
+- Add your Google App's Client ID and Client Secret
+- Configuring the OAuth Consent Screen Settings of your Google Cloud Project
+
+Access your Google Cloud Account 
+
+- Go to [https://cloud.google.com/]
+- Sign In and look for "Console"
+
+Creating a Google Cloud Project
+
+- After Getting redirect to the console dashboard, Create a new project by clicking on the Select a Project -> New Project 
+- Input all the necessary credentials google ask for.
+
+Obtaining OAuth Credentials for your Google Cloud Project
+
+- Navigate in the Credentials page of the console [https://console.cloud.google.com/apis/credentials]
+- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google1.png)
+- Click on Create Credentials and Choose OAuth Client ID 
+- Choose Web Application for the Application Type
+- In Authorized redirect URIs Copy the URL Callback from supabase that we have been using previously.
+- Also add your localhost URL to the Authorized Javascript origins ( during development )
+- After that located on the right half of the screen is where your Client ID and Client Secret is located.
+- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google2.png)
+- Copy and Hit Save Changes
+
+Configure the OAuth consent screen settings
+
+- You can navigate to the OAuth consent screen in the left sidebar of the dashboard or just use this link [https://console.cloud.google.com/apis/credentials/consent]
+- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google3.png)
+- Click on Edit App and Add your Supabase Project URL to the Authorized domain 1 ( Supabase URL is the one you are using in your .env.local )
+- Click Save and Continue
+- In the Scopes section make sure to Configure the non-sensitive scopes by making sure the following ones are select 
+```.../auth/userinfo.email```
+```.../auth/userinfo.profile```
+```openid```
+
+Add your Google credentials into your Supabase Project
+
+- Go to your supabase project dashboard
+- In the left sidebar, click the Authentication 
+- Click on Providers 
+- Look for Google from the accordion / expansion panel lists and turn on Enable Google
+- Enter your Google Client ID and Google Client Secret saved in the previous step
+- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google4.png)
+- Click Save!
+- That's it and give it a whirl
+
+If you find it hard to follow the documentation please read here: The official documentation from supabase  [https://supabase.com/docs/guides/auth/social-login/auth-google]
+
 ### Discord Configuration
+
+Setting up Discord logins for your Application consists of 2 parts: 
+
+- Create and configure a Discord Application
+- Add your Discord OAuth Consumer keys to your Supabase Project
+
+Access your Discord Developer Account
+
+- Go to [https://discord.com]
+- Create a discord account if don't have one, once logged in go to [https://discord.com/developers/applications]
+- You should be able to see this screen 
+- ![Sample Screenshot](./src/assets/screenshots/discord/Discord_Readme1.png)
+
+Creating a discord application
+
+- Click on New Application at the top right
+- Enter the name of your application and click Create
+- Click on the OAuth under settings extension panel in the left sidebar
+- Click Add Redirect under Redirects
+- Paste your callback URL from supabase
+- Click Save Changes 
+- Copy your Client ID and Client Secret under Client Information. 
+- ![Sample Screenshot](./src/assets/screenshots/discord/Discord_Readme2.png)
+
+Add your Discord credentials into your Supabase project
+
+- Go to your supabase project dashboard
+- In the left sidebar, click the Authentication 
+- Click on Providers 
+- Look for Discord from the accordion / expansion panel lists and turn on Enable Discord
+- Enter your Discord Client ID and Discord Client Secret saved in the previous step
+- Click Save!
+- That's it and give it a whirl
+
+If you find it hard to follow the documentation please read here: The official documentation from supabase [https://supabase.com/docs/guides/auth/social-login/auth-discord]
+
+
+
+
 
 
