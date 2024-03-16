@@ -162,13 +162,13 @@ Obtaining OAuth Credentials for your Google Cloud Project
 - In Authorized redirect URIs Copy the URL Callback from supabase that we have been using previously.
 - Also add your localhost URL to the Authorized Javascript origins ( during development )
 - After that located on the right half of the screen is where your Client ID and Client Secret is located.
-- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google2.png)
+- ![Sample Screenshot](./src/assets/screenshots/google/Readme_Google2.png)
 - Copy and Hit Save Changes
 
 Configure the OAuth consent screen settings
 
 - You can navigate to the OAuth consent screen in the left sidebar of the dashboard or just use this link [https://console.cloud.google.com/apis/credentials/consent]
-- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google3.png)
+- ![Sample Screenshot](./src/assets/screenshots/google/Readme_Google3.png)
 - Click on Edit App and Add your Supabase Project URL to the Authorized domain 1 ( Supabase URL is the one you are using in your .env.local )
 - Click Save and Continue
 - In the Scopes section make sure to Configure the non-sensitive scopes by making sure the following ones are select 
@@ -183,7 +183,7 @@ Add your Google credentials into your Supabase Project
 - Click on Providers 
 - Look for Google from the accordion / expansion panel lists and turn on Enable Google
 - Enter your Google Client ID and Google Client Secret saved in the previous step
-- ![Sample Screenshot](./src/assets/screenshots/google/Read_Google4.png)
+- ![Sample Screenshot](./src/assets/screenshots/google/Readme_Google4.png)
 - Click Save!
 - That's it and give it a whirl
 
